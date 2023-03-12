@@ -3,12 +3,10 @@
 namespace App\Policies;
 
 use App\Models\Sala;
-use App\Models\Especialidad;
-use App\Models\Medico;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class MedicoPolicy
+class SalaPolicy
 {
     use HandlesAuthorization;
 
@@ -21,7 +19,7 @@ class MedicoPolicy
 
     public function viewAny(User $user)
     {
-        return $user->tipo_usuario_id == 3;
+        return true;
     }
 
     /**
@@ -31,9 +29,9 @@ class MedicoPolicy
      * @param  \App\Models\Sala  $sala
      * @return mixed
      */
-    public function view(User $user, Medico $medico)
+    public function view(User $user, Sala $sala)
     {
-        return $user->tipo_usuario_id == 3;
+        return $user->tipo_usuario_id == 3 || ($user->tipo_usuario_id == 2 && $sala->paciente_id == $user->paciente->id) || ($user->tipo_usuario_id == 1 && $sala->medico_id == $user->medico->id);
     }
 
     /**
@@ -45,7 +43,7 @@ class MedicoPolicy
 
     public function create(User $user)
     {
-        return $user->tipo_usuario_id == 3;
+        return true;
     }
 
     /**
@@ -55,21 +53,21 @@ class MedicoPolicy
      * @param  \App\Models\Sala  $sala
      * @return mixed
      */
-    public function update(User $user, Medico $medico)
+    public function update(User $user, Sala $sala)
     {
-        return $user->tipo_usuario_id == 3 || $medico->id == $user->medico_id;
+        return $user->tipo_usuario_id == 3 || ($user->tipo_usuario_id == 2 && $sala->paciente_id == $user->paciente->id) || ($user->tipo_usuario_id == 1 && $sala->medico_id == $user->medico->id);
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Sala $sala
+     * @param  \App\Models\Sala  $sala
      * @return mixed
      */
-    public function delete(User $user, Medico $medico)
+    public function delete(User $user, Sala $sala)
     {
-        return $user->tipo_usuario_id == 3;
+        return $user->tipo_usuario_id == 3 || ($user->tipo_usuario_id == 2 && $sala->paciente_id == $user->paciente->id) || ($user->tipo_usuario_id == 1 && $sala->medico_id == $user->medico->id);
     }
 
     /**
@@ -99,4 +97,14 @@ class MedicoPolicy
         //
     }
     */
+
+    public function attach_medicamento(User $user, Sala $sala)
+    {
+        return $user->tipo_usuario_id == 3 || ($user->tipo_usuario_id == 1 && $sala->medico_id == $user->medico->id);
+    }
+
+    public function detach_medicamento(User $user, Sala $sala)
+    {
+        return $user->tipo_usuario_id == 3 || ($user->tipo_usuario_id == 1 && $sala->medico_id == $user->medico->id);
+    }
 }
