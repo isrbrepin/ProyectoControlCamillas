@@ -30,4 +30,9 @@ class Sala extends Model
     //public function getTiempoHospitalizadoAttribute(){
     //    return Carbon::now()->diffInDays($this->fecha_hora_inicio);
     //}
+
+    public function getPlantaNumeroAttribute()
+    {
+        return 'Planta: ' . $this->planta . ', Numero: ' . $this->numeroSala;
+    }
 }
