@@ -10,7 +10,7 @@ class Medico extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['fecha_contratacion', 'vacunado', 'sueldo', 'especialidad_id'];
+    protected $fillable = ['telefono', 'fecha_contratacion', 'fecha_nacimiento', 'vacunado', 'sueldo', 'especialidad_id'];
 
     protected $casts = [
         'vacunado' => 'boolean',
