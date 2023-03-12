@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class CitaSeeder extends Seeder
+class SalaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,28 +14,34 @@ class CitaSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('citas')->insert([
+        DB::table('salas')->insert([
             [
                 'medico_id' => 1,
                 'paciente_id' => 1,
-                'fecha_hora' => '2021-05-30 10:15:00',
+                'fecha_hora_inicio' => '2023-02-30 10:15:00',
+                'planta' => "3",
+                'numeroSala' => "135",
             ],
             [
                 'medico_id' => 1,
                 'paciente_id' => 2,
-                'fecha_hora' => '2021-06-30 09:30:00',
+                'fecha_hora_inicio' => '2023-01-30 09:30:00',
+                'planta' => "1",
+                'numeroSala' => "45",
             ],
             [
                 'medico_id' => 2,
                 'paciente_id' => 2,
-                'fecha_hora' => '2021-07-20 11:30:00',
+                'fecha_hora_inicio' => '2023-02-15 11:30:00',
+                'planta' => "2",
+                'numeroSala' => "99",
             ],
         ]);
 
 
-        DB::table('cita_medicamento')->insert([
+        DB::table('sala_medicamento')->insert([
             [
-                'cita_id' => 1,
+                'sala_id' => 1,
                 'medicamento_id' => 1,
                 'inicio' => '2021-05-31',
                 'fin' => '2021-06-07',
@@ -43,7 +49,7 @@ class CitaSeeder extends Seeder
                 'comentarios' => 'Tomar después de las comidas',
             ],
             [
-                'cita_id' => 2,
+                'sala_id' => 2,
                 'medicamento_id' => 2,
                 'inicio' => '2021-06-30',
                 'fin' => '2021-07-15',
@@ -51,7 +57,7 @@ class CitaSeeder extends Seeder
                 'comentarios' => 'El paciente presenta reacciones alérgicas',
             ],
             [
-                'cita_id' => 2,
+                'sala_id' => 2,
                 'medicamento_id' => 1,
                 'inicio' => '2021-06-30',
                 'fin' => '2021-07-10',

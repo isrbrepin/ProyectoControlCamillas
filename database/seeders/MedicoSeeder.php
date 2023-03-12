@@ -17,6 +17,8 @@ class MedicoSeeder extends Seeder
     {
         DB::table('medicos')->insert([
             [
+                'telefono' => "956123456",
+                'fecha_nacimiento' => "1975-01-01",
                 'fecha_contratacion' => "2021-01-01",
                 'vacunado' => 1,
                 'sueldo' => 40000.0,
@@ -24,6 +26,8 @@ class MedicoSeeder extends Seeder
                 'especialidad_id' => 2
             ],
             [
+                'telefono' => "856987654"
+                'fecha_nacimiento' => "1976-05-21",
                 'fecha_contratacion' => "2020-06-01",
                 'vacunado' => 0,
                 'sueldo' => 50000.0,
