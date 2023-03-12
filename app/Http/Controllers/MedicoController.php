@@ -44,7 +44,10 @@ class MedicoController extends Controller
         $this->validate($request, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
+            'dni' => 'required|string|max:10|min:8|unique:users',
             'password' => 'required|string|confirmed|min:8',
+            'telefono' => 'required|string|max:255',
+            'fecha_nacimiento' => 'required|date',
             'fecha_contratacion' => 'required|date',
             'vacunado' => 'required|boolean',
             'sueldo' => 'required|numeric',
@@ -53,13 +56,14 @@ class MedicoController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'dni' => $request->dni,
             'password' => Hash::make($request->password),
         ]);
         $medico = new Medico($request->all());
         $medico->user_id = $user->id;
         $medico->save();
-        session()->flash('success', 'Médico creado correctamente. Si nos da tiempo haremos este mensaje internacionalizable y parametrizable');
-        return redirect()->route('medicos.index');
+        session()->flash('success', 'Médico creado correctamente.'); // Si nos da tiempo haremos este mensaje internacionalizable y parametrizable
+        return redirect()->route('medicos.index'); //Te manda al index de nuevo
     }
 
     /**
@@ -97,7 +101,10 @@ class MedicoController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'dni' => 'required|string|max:10|min:8|unique:users',
+            'telefono' => 'required|string|max:255',
+            'fecha_nacimiento' => 'required|date',
             'fecha_contratacion' => 'required|date',
             'vacunado' => 'required|boolean',
             'sueldo' => 'required|numeric',
