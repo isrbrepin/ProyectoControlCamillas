@@ -10,10 +10,11 @@ class Medico extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['telefono', 'fecha_contratacion', 'fecha_nacimiento', 'vacunado', 'sueldo', 'especialidad_id'];
+    protected $fillable = ['telefono', 'fecha_nacimiento', 'fecha_contratacion', 'vacunado', 'sueldo', 'especialidad_id'];
 
     protected $casts = [
         'vacunado' => 'boolean',
+        'fecha_nacimiento' => 'datetime:Y-m-d',
         'fecha_contratacion' => 'datetime:Y-m-d'
     ];
 
@@ -25,12 +26,12 @@ class Medico extends Model
         return $this->belongsTo(Especialidad::class);
     }
 
-    public function citas(){
-        return $this->hasMany(Cita::class);
+    public function salas(){
+        return $this->hasMany(Sala::class); // one to many
     }
 
     public function pacientes(){
-        return $this->hasManyThrough(Paciente::class, Cita::class);
+        return $this->hasManyThrough(Paciente::class, Sala::class); // clase intermedia
     }
 
     public function getDiasContratadoAttribute(){
