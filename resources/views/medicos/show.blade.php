@@ -65,6 +65,12 @@
                                                 name="password_confirmation" required />
                             </div> --}}
 
+                            <div>
+                                <x-label for="telefono" :value="__('Telefono')" />
+
+                                <x-input id="telefono" readonly disabled class="block mt-1 w-full" type="text" name="telefono" :value="$medico->telefono" required autofocus />
+                            </div>
+
                             <div class="mt-4">
                                 <x-label for="fecha_nacimiento" :value="__('Fecha nacimiento')" />
 
@@ -73,12 +79,6 @@
                                                 name="fecha_nacimiento"
                                                 :value="$medico->fecha_nacimiento->format('Y-m-d')"
                                                 required />
-                            </div>
-
-                            <div>
-                                <x-label for="telefono" :value="__('Telefono')" />
-
-                                <x-input id="telefono" readonly disabled class="block mt-1 w-full" type="text" name="telefono" :value="$medico->telefono" required autofocus />
                             </div>
 
                             <div class="mt-4">
