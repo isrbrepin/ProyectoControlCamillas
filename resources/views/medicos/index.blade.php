@@ -21,8 +21,11 @@
                             <tr class="bg-gray-200 text-gray-900 uppercase text-sm leading-normal">
                                 <th class="py-3 px-6 text-left">ID</th>
                                 <th class="py-3 px-6 text-left">Nombre</th>
+                                <th class="py-3 px-6 text-left">DNI</th>
                                 <th class="py-3 px-6 text-left">Especialidad</th>
                                 {{-- <th class="py-3 px-6 text-left">Email</th> --}}
+                                <th class="py-3 px-6 text-left">Telefono</th>
+                                <th class="py-3 px-6 text-left">Fecha nacimiento</th>
                                 <th class="py-3 px-6 text-left">Fecha contratación</th>
                                 <th class="py-3 px-6 text-left">Antigüedad</th>
                                 {{-- <th class="py-3 px-6 text-left">Vacunado</th> --}}
