@@ -13,8 +13,8 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     @if(in_array(Auth::user()->tipo_usuario_id, [1,2]))
-                        <x-nav-link :href="route('citas.index')" :active="request()->routeIs('citas.index') or request()->routeIs('citas.create') or request()->routeIs('citas.edit') or request()->routeIs('citas.show')">
-                            {{ __('Mis citas') }}
+                        <x-nav-link :href="route('salas.index')" :active="request()->routeIs('salas.index') or request()->routeIs('cisalastas.create') or request()->routeIs('salas.edit') or request()->routeIs('salas.show')">
+                            {{ __('Mis salas') }}
                         </x-nav-link>
                     @endif
                     @if(Auth::user()->tipo_usuario_id == 3)
@@ -30,8 +30,8 @@
                             <x-nav-link :href="route('medicos.index')" :active="request()->routeIs('medicos.index') or request()->routeIs('medicos.create') or request()->routeIs('medicos.edit') or request()->routeIs('medicos.show')">
                                 {{ __('Médicos') }}
                             </x-nav-link>
-                            <x-nav-link :href="route('citas.index')" :active="request()->routeIs('citas.index') or request()->routeIs('citas.create') or request()->routeIs('citas.edit') or request()->routeIs('citas.show')">
-                                {{ __('Citas') }}
+                            <x-nav-link :href="route('salas.index')" :active="request()->routeIs('salas.index') or request()->routeIs('salas.create') or request()->routeIs('salas.edit') or request()->routeIs('salas.show')">
+                                {{ __('Salas') }}
                             </x-nav-link>
                     @endif
                 </div>
