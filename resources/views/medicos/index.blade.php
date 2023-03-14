@@ -47,6 +47,11 @@
                                 </td>
                                 <td class="py-3 px-6 text-left whitespace-nowrap">
                                     <div class="flex items-center">
+                                        <span class="font-medium">{{$medico->user->dni}}</span>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center">
                                         <span class="font-medium">{{$medico->especialidad ? $medico->especialidad->nombre : __('Sin especialidad')}}</span>
                                     </div>
                                 </td>
@@ -55,6 +60,16 @@
                                         <span class="font-medium">{{$medico->user->email}}</span>
                                     </div>
                                 </td> --}}
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <span class="font-medium">{{$medico->->telefono}}</span>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <span class="font-medium">{{$medico->fecha_nacimiento->format('d/m/Y')}}</span>
+                                    </div>
+                                </td>
                                 <td class="py-3 px-6 text-left whitespace-nowrap">
                                     <div class="flex items-center">
                                         <span class="font-medium">{{$medico->fecha_contratacion->format('d/m/Y')}}</span>
@@ -77,7 +92,7 @@
                                 </td>
                                 <td class="py-3 px-6 text-left whitespace-nowrap">
                                     <div class="flex items-center">
-                                        <span class="font-medium">{{$medico->citas()->where('fecha_hora', \Carbon\Carbon::now())->count()}}</span>
+                                        <span class="font-medium">{{$medico->salas()->where('fecha_hora_inicio', \Carbon\Carbon::now())->count()}}</span>
                                     </div>
                                 </td>
                                 <td class="py-3 px-6 text-center">

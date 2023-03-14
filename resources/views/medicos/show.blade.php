@@ -33,6 +33,12 @@
                                 <x-input id="name" readonly disabled class="block mt-1 w-full" type="text" name="name" :value="$medico->user->name" required autofocus />
                             </div>
 
+                            <div>
+                                <x-label for="dni" :value="__('Dni')" />
+
+                                <x-input id="dni" readonly disabled class="block mt-1 w-full" type="text" name="dni" :value="$medico->user->dni" required autofocus />
+                            </div>
+
                             <!-- Email Address -->
                             <div class="mt-4">
                                 <x-label for="email" :value="__('Email')" />
@@ -58,6 +64,22 @@
                                                 type="password"
                                                 name="password_confirmation" required />
                             </div> --}}
+
+                            <div class="mt-4">
+                                <x-label for="fecha_nacimiento" :value="__('Fecha nacimiento')" />
+
+                                <x-input readonly disabled id="fecha_nacimiento" class="block mt-1 w-full"
+                                                type="date"
+                                                name="fecha_nacimiento"
+                                                :value="$medico->fecha_nacimiento->format('Y-m-d')"
+                                                required />
+                            </div>
+
+                            <div>
+                                <x-label for="telefono" :value="__('Telefono')" />
+
+                                <x-input id="telefono" readonly disabled class="block mt-1 w-full" type="text" name="telefono" :value="$medico->telefono" required autofocus />
+                            </div>
 
                             <div class="mt-4">
                                 <x-label for="fecha_contratacion" :value="__('Fecha contratación')" />
