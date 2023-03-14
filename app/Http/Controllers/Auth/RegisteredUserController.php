@@ -46,6 +46,7 @@ class RegisteredUserController extends Controller
         $rules = [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
+            'dni' => 'required|string|max:10|min:8|unique:users',
             'password' => 'required|string|confirmed|min:8',
             'tipo_usuario_id' => 'required|numeric'
         ];
@@ -53,7 +54,9 @@ class RegisteredUserController extends Controller
         $tipo_usuario_id = intval($request->tipo_usuario_id);
         if($tipo_usuario_id == 1){
             //Médico
-            $reglas_medico = ['fecha_contratacion' => 'required|date',
+            $reglas_medico = ['telefono' => 'required|string|max:255',
+                'fecha_nacimiento' => 'required|date',
+                'fecha_contratacion' => 'required|date',
                 'vacunado' => 'required|boolean',
                 'sueldo' => 'required|numeric',
                 'especialidad_id' => 'required|exists:especialidads,id'
