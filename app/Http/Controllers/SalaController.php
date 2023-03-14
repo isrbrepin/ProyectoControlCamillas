@@ -90,8 +90,8 @@ class SalaController extends Controller
     {
         $reglas = [
             'fecha_hora_inicio' => 'required|date|after:yesterday',
-            'planta' => 'required|string|max:255'
-            'numero_sala' => 'required|string|max:255'
+            'planta' => 'required|string|max:255',
+            'numero_sala' => 'required|string|max:255',
             'medico_id' => 'required|exists:medicos,id',
         ];
         if(Auth::user()->tipo_usuario_id == 2){

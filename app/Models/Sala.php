@@ -33,6 +33,6 @@ class Sala extends Model
 
     public function getPlantaNumeroAttribute()
     {
-        return 'Planta: ' . $this->planta . ', Numero: ' . $this->numeroSala;
+        return 'Planta: ' . $this->planta . ', Numero: ' . $this->numero_sala;
     }
 }
