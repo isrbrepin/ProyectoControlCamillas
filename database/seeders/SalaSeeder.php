@@ -20,21 +20,21 @@ class SalaSeeder extends Seeder
                 'paciente_id' => 1,
                 'fecha_hora_inicio' => '2023-02-30 10:15:00',
                 'planta' => "3",
-                'numeroSala' => "135",
+                'numero_sala' => "135",
             ],
             [
                 'medico_id' => 1,
                 'paciente_id' => 2,
                 'fecha_hora_inicio' => '2023-01-30 09:30:00',
                 'planta' => "1",
-                'numeroSala' => "45",
+                'numero_sala' => "45",
             ],
             [
                 'medico_id' => 2,
                 'paciente_id' => 2,
                 'fecha_hora_inicio' => '2023-02-15 11:30:00',
                 'planta' => "2",
-                'numeroSala' => "99",
+                'numero_sala' => "99",
             ],
         ]);
 

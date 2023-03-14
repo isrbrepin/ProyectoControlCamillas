@@ -18,7 +18,7 @@ class CreateSalasTable extends Migration
             $table->timestamps();
             $table->dateTime('fecha_hora_inicio');
             $table->string('planta');
-            $table->string('numeroSala');
+            $table->string('numero_sala');
             $table->foreignId('medico_id')->constrained()->onDelete('cascade');
             $table->foreignId('paciente_id')->constrained()->onDelete('cascade');
         });
